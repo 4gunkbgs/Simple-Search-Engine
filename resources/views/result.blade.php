@@ -1,27 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Browse</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Animsearch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ URL::asset('css/searchpage.css') }}">
 </head>
+
 <body>
-    @foreach ($hasil['response']['docs'] as $h)
-
-        ini id {{ $h['id'] }}
-        <br>
-        title: {{ $h ['title_txt_en']}}
-        <br>
-        sinopsis: {{ $h['body_txt_en']}}
-        <br>
-        genre: {{ $h['genre_txt_en']}}
-
-        <br>
-        <br>
-        
-    @endforeach 
-    {{-- {{ $hasil }} --}}
+    <div class="logos">
+        <a href="searchpage.php">
+            <img class="rounded mx-auto d-block" alt="Animsearch" src="{{ URL::asset('img/Logo.png') }}">
+        </a>
+    </div>
+    <div class="bar">
+        <form method="get" action="/search">
+            <input class="searchbar" id="q" name="search" type="text" title="Search">
+        </form>
+    </div>
+    <div id="result">
+        @foreach ($hasil['response']['docs'] as $h)        
     
+        <div class="container">
+            <!-- <div class="kata">Search Results for  </div> -->
+            <div class="item">
+                
+                <div class="title">{{ $h ['title_txt_en'] }} </div>
+                <div class="rating">rating</div>
+                <div class="description">
+                    <div class="kategori">Synopsis: </div> {{ $h['body_txt_en']}}
+                </div>
+                <div class="link">{{ $h['id'] }} </div>
+                <div class="genre">
+                    <div class="kategori">Genre: </div> {{ $h['genre_txt_en']}}
+                </div>
+                <div class="studio">
+                    <div class="kategori">Studio: </div> studio
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
 </body>
+
 </html>
