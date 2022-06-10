@@ -8,11 +8,12 @@
     <title>Animsearch</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ URL::asset('css/searchpage.css') }}">
+    <link rel="icon" href="{{ URL::asset('img/Logo.png') }}" type = "image/x-icon">
 </head>
 
 <body>
     <div class="logos">
-        <a href="searchpage.php">
+        <a href="/">
             <img class="rounded mx-auto d-block" alt="Animsearch" src="{{ URL::asset('img/Logo.png') }}">
         </a>
     </div>
@@ -25,15 +26,13 @@
         @foreach ($hasil['response']['docs'] as $h)        
     
         <div class="container">
-            <!-- <div class="kata">Search Results for  </div> -->
             <div class="item">
-                
-                <div class="title">{{ $h ['title_txt_en'] }} </div>
+                <a href="{{ $h['id'] }}"><div class="title">{{ $h ['title_txt_en'] }} </div></a>
                 <div class="rating">rating</div>
                 <div class="description">
                     <div class="kategori">Synopsis: </div> {{ $h['body_txt_en']}}
                 </div>
-                <div class="link">{{ $h['id'] }} </div>
+                <div class="link"><a href="{{ $h['id'] }}">{{ $h['id'] }}</a> </div>
                 <div class="genre">
                     <div class="kategori">Genre: </div> {{ $h['genre_txt_en']}}
                 </div>
@@ -42,6 +41,7 @@
                 </div>
             </div>
         </div>
+        
         @endforeach
     </div>
 </body>
