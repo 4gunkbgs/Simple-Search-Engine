@@ -28,7 +28,8 @@
         <div class="container">
             <div class="item">
                 <a href="{{ $h['id'] }}"><div class="title">{{ $h ['title_txt_en'] }} </div></a>
-                <div class="rating">rating</div>
+                <div><img src="{{$h['pic_txt_en']}}" class="ml-1 float-start" alt="..." style="width:100px;height:150px;border-style:none"></div>
+                <div class="rating">Rating: {{ $h['rating_txt_en']}}</div>
                 <div class="description">
                     <div class="kategori">Synopsis: </div> {{ $h['body_txt_en']}}
                 </div>
@@ -37,7 +38,7 @@
                     <div class="kategori">Genre: </div> {{ $h['genre_txt_en']}}
                 </div>
                 <div class="studio">
-                    <div class="kategori">Studio: </div> studio
+                    <div class="kategori">Studio: {{ $h['studio_txt_en']}}</div> 
                 </div>
             </div>
         </div>
