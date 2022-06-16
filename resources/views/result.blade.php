@@ -23,7 +23,7 @@
         </form>
     </div>
     <div id="result">
-        @foreach ($hasil['response']['docs'] as $h)        
+        @foreach ($hasil as $h)        
     
         <div class="container">
             <div class="item">
@@ -45,6 +45,18 @@
         
         @endforeach
     </div>
+    
+    {{-- Links() --}}
+    {{-- menampilkan angka yang menunjukkan hasil pagination --}}
+    <center>
+    @if ($banyakHalaman > 1)
+        @for ($i = 1; $i <= $banyakHalaman; $i++)
+    
+            <a href="/search?halaman={{$i}}&search={{$prevSearch}}">{{$i}}</a>
+        
+        @endfor
+    @endif
+    </center>
 </body>
 
 </html>
