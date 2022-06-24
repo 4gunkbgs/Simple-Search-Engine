@@ -15,9 +15,11 @@ li a {
   text-decoration: none;
   font-size: 14px;
 }
+
 li a:hover {
   text-decoration: underline;
 }
+
 .grid {
   height: 23px;
   position: relative;
@@ -30,17 +32,21 @@ li a:hover {
 }
 
 .bar {
+  border: 1px solid Violet;
   margin: 0 auto;
-  width: 500px;
+  width: 502px;
   border-radius: 10px;
 }
+
 .bar:hover {
   box-shadow: 1px 1px 8px 1px #0c0df7;
 }
+
 .bar:focus-within {
   box-shadow: 1px 1px 8px 1px #0c0df7;
   outline: none;
 }
+
 .searchbar {
   border-radius: 10px;
   height: 45px;
@@ -53,6 +59,7 @@ li a:hover {
 .buttons {
   margin-top: 30px;
 }
+
 .button {
   background-color: #f5f5f5;
   border: none;
@@ -63,25 +70,28 @@ li a:hover {
   border-radius: 4px;
   outline: none;
 }
+
 .button:hover {
   border: 1px solid #c8c8c8;
   padding: 9px 19px;
   color: #808080;
 }
+
 .button:focus {
   border: 1px solid #4885ed;
   padding: 9px 19px;
 }
+
 body {
-  background-color: #cfcfcf;
+  background-color: #ffffff;
   font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
 }
 
-input{
+input {
   text-align: center;
 }
 
-.item .rating{
+.item .rating {
   font-weight: bold;
 }
 
@@ -111,18 +121,58 @@ input{
   border-bottom: 1px solid #eeeeee;
 }
 
-img  {
+img {
   padding: 10px 10px 10px 10px;
   width: 25%;
   height: auto;
 }
 
-.kata{
+.kata {
   background-color: #0c0df7;
   color: #f5f5f5;
   text-align: center;
 }
+
 .kategori {
   font-weight: bold;
   color: #000;
+}
+
+.pagination {
+  display: inline-block;
+  padding-top: 30px;
+  padding-right: 10px;
+  padding-bottom: 30px;
+  padding-left: 80px;
+}
+
+.pagination a {
+  color: rgb(0, 0, 0);
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a {
+  border: 1px solid Violet;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: rgb(255, 242, 0);
+}
+
+.pagination a {
+  border-radius: 5px;
+}
+
+.pagination a.active {
+  border-radius: 5px;
+}
+
+.pagination a {
+  transition: background-color .3s;
+}
+
+.container {
+  color: #000;
+  border: 2px solid Violet;
 }

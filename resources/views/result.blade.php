@@ -22,13 +22,14 @@
             <input class="searchbar" id="q" name="search" type="text" title="Search">
         </form>
     </div>
+    <br>
     <div id="result">
         @foreach ($hasil as $h)        
     
         <div class="container">
             <div class="item">
                 <a href="{{ $h['id'] }}"><div class="title">{{ $h ['title_txt_en'] }} </div></a>
-                <div><img src="{{$h['pic_txt_en']}}" class="ml-1 float-start" alt="..." style="width:100px;height:150px;border-style:none"></div>
+                <div><img src="{{$h['pic_txt_en']}}" class="ml-1 float-start" alt="..." style="width:150px;height:200px;border-style:none"></div>
                 <div class="rating">Rating: {{ $h['rating_txt_en']}}</div>
                 <div class="description">
                     <div class="kategori">Synopsis: </div> {{ $h['body_txt_en']}}
@@ -48,15 +49,19 @@
     
     {{-- Links() --}}
     {{-- menampilkan angka yang menunjukkan hasil pagination --}}
+
     <center>
-    @if ($banyakHalaman > 1)
-        @for ($i = 1; $i <= $banyakHalaman; $i++)
-    
-            <a href="/search?halaman={{$i}}&search={{$prevSearch}}">{{$i}}</a>
+    <div class="pagination">
+        @if ($banyakHalaman > 1)
+            @for ($i = 1; $i <= $banyakHalaman; $i++)
         
-        @endfor
-    @endif
+                <a href="/search?halaman={{$i}}&search={{$prevSearch}}">{{$i}}</a>
+            
+            @endfor
+        @endif
+    </div>
     </center>
+
 </body>
 
 </html>
