@@ -28,7 +28,7 @@ class BrowseController extends Controller
             if (Str::contains($key, ' ')) {
                 $result = explode(' ', $key);
                 foreach ($result as $res) {
-                    $searchKey .= $res . "%20";
+                    $searchKey .= $res . "%2B";
                 }
                 $searchKey = substr($searchKey, 0, -3);
                 return $searchKey;
@@ -65,7 +65,12 @@ class BrowseController extends Controller
         }
 
         // menggabungkan input user dengan url pada apache solr
-        $url = "http://localhost:8983/solr/mal_core/select?indent=true&q.op=OR&q=title_txt_en%3A%20" . convertSearchKey($request->search);
+        // $url = "http://localhost:8983/solr/mal_core/select?indent=true&q.op=OR&q=title_txt_en%3A%20" . convertSearchKey($request->search);
+
+        // http://localhost:8983/solr/mal_core/select?indent=true&q.op=OR&q=title_txt_en%3Aone%2Bpiece%0Abody_txt_en%3Aone%2Bpiece
+        // http://localhost:8983/solr/mal_core/select?indent=true&q.op=OR&q=title_txt_en%3Aone%2Bpiece%0Abody_txt_en%3Aone%2Bpiece
+
+        $url = "http://localhost:8983/solr/mal_core/select?indent=true&q.op=OR&q=title_txt_en%3A" . convertSearchKey($request->search) . "%0Abody_txt_en%3A" . convertSearchKey($request->search);
         // supaya data yang tampil bisa lebih dari default = 10
         $url = $url . "&rows=50";
 
